@@ -30,13 +30,11 @@ class Core {
             if (method_exists($this->controladorActual, $url[1])) {
                 $this->metodoActual = $url[1];
                 unset($url[1]); // elimino la variable con el indice 2
-
             }
          }
-        //  echo $this->metodoActual;
+         // echo $this->metodoActual; 
          // obtener parametros restantes
         $this->parametros = $url ? array_values($url) : []; // operador ternario
-         
          // llamar un callback con el array de parametros
         call_user_func_array([$this->controladorActual, $this->metodoActual], $this->parametros);
          

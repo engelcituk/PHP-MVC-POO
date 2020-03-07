@@ -1,16 +1,15 @@
-<?php 
+<?php
 
-    class Paginas
+class Paginas extends Controller {
+
+    public function __construct()
     {
-        public function __construct()
-        {
-            // echo 'paginas cargadas<br>';
-        } 
-         public function index(){
-
-        }
-        public function about($id){
-            echo $id;
-        }
+        // echo 'paginas cargadas<br>';
+    } 
+    public function index(){
+        $this->view('hola');
     }
-    
+    public function about($id){
+        echo $id;
+    }
+}
