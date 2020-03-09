@@ -12,6 +12,6 @@ define('APPROOT', dirname(dirname (__FILE__)));
 define('URLROOT', 'http://localhost:8888/poomvc');
 //nombre del sitio
 define('SITENAME', 'MvcPosts');
-// version del framework
+// version de nuestro aplicacion/framework
 define('APPVERSION', 'V1.0.0');
 
