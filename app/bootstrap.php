@@ -1,4 +1,3 @@
-
 <?php
 // carga de archivo de configuracion 
 require_once 'config/config.php';

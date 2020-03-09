@@ -10,6 +10,7 @@
          require_once '../app/models/'.$model.'.php';
          // se instancia el modelo
          return new $model();   
+
      }
      //metodo para cargar la vista
      public function view($view, $data=[]){
@@ -22,5 +23,4 @@
             die('La vista no existe');
         }
     }
-
  }

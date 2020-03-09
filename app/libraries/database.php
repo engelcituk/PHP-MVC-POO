@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Clase base de datos PDO
  * Conectar a la base de datos

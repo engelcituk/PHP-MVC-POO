@@ -13,4 +13,3 @@ define('URLROOT', 'http://localhost:8888/poomvc');
 //nombre del sitio
 define('SITENAME', 'MvcPosts');
 
-
