@@ -37,4 +37,22 @@ class User {
         }
 
     }
+    //login de usuario
+    public function login($email, $password){
+        $this->db->query('SELECT * FROM users WHERE email = :email');// obtenemos al usuario
+        // enlazamos parametros
+        $this->db->bind(':email', $email);
+
+        $row = $this->db->single();
+        
+        $hashedPassword = $row->password;// obtengo el password del user
+
+        //comparo si la contraseña obtenida de la consulta y la que estoy trayendo por parametro sean iguales
+        if(password_verify($password, $hashedPassword )){
+            return $row; // regreso el registro
+        }else{
+            return false;
+        }
+
+    }
 }
