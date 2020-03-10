@@ -2,10 +2,10 @@
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="card card-body bg-light mt-5">
+                <?php  flash('register_success');?>
                 <h2>Iniciar sesión</h2>
                 <p>Por favor ingrese su correo y contraseña</p>
                 <form action="<?php echo URLROOT . '/users/login'; ?>" method="post">
-                    
                     <div class="form-group">
                         <label for="email">Email: <sup>*</sup></label>
                         <input type="email" name="email" class="form-control <?php echo (!empty($data['email_err'])) ? 'is-invalid':''; ?>" placeholder="Su correo electrónico" value="<?php echo $data['email'];?>">
