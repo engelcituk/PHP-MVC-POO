@@ -90,6 +90,7 @@ class Users extends Controller {
             $this->view('users/register', $data);
         }
     }
+    
     public function login(){
         // Verificar POST
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -123,12 +124,11 @@ class Users extends Controller {
             if( empty($data['email_err']) && empty($data['password_err']) ){
                 //validado
                 //verificar y configurar que el usuario se conecte
-                $loggedInUser = $this->userModel->login($data['email'],$data['password']);
-                //si loggedInUser trae valor
-                if( $loggedInUser ){
+                $user = $this->userModel->login($data['email'],$data['password']);// traigo los datos del usuario
+                //si user trae valor
+                if( $user ){
                     // creamos variables de sesión
-                    die('success');
-
+                    $this->createUserSession( $user );
                 }else{
                     $data['password_err'] = 'Contraseña incorrecta';
                     //recargamos la vista
@@ -149,6 +149,31 @@ class Users extends Controller {
             ];
             // Cargar vista
             $this->view('users/login', $data);
+        }
+    }
+    public function createUserSession($user){
+        $_SESSION['user_id'] = $user->id;
+        $_SESSION['user_name'] = $user->name;
+        $_SESSION['user_email'] = $user->email;
+        redirect('paginas/index');
+        
+    }
+    public function logout(){
+        //elimino las variables de sesion 
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_name']);
+        unset($_SESSION['user_email']);
+
+        session_destroy();// destruyo la sesion 
+
+        redirect('users/login'); //redirijo
+    }
+
+    public function isLoggedIn(){
+        if( isset( $_SESSION['user_id'] ) ){
+            return true;
+        }else {
+            return false;
         }
     }
 }

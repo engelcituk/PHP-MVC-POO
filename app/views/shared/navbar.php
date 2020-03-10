@@ -16,12 +16,18 @@
       </ul>
 
       <ul class="navbar-nav mr-auto">
+        <?php if(isset($_SESSION['user_id'])) : ?>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Registrar <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
-        </li>
+            <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Salir <span class="sr-only">(current)</span></a>
+          </li>
+        <?php else : ?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Registrar <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
+          </li>
+        <?php endif; ?>
       </ul>
     </div>
   </div>

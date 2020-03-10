@@ -43,13 +43,13 @@ class User {
         // enlazamos parametros
         $this->db->bind(':email', $email);
 
-        $row = $this->db->single();
+        $usuario = $this->db->single();
         
-        $hashedPassword = $row->password;// obtengo el password del user
+        $hashedPassword = $usuario->password;// obtengo el password del user
 
         //comparo si la contraseña obtenida de la consulta y la que estoy trayendo por parametro sean iguales
         if(password_verify($password, $hashedPassword )){
-            return $row; // regreso el registro
+            return $usuario; // regreso el registro
         }else{
             return false;
         }
