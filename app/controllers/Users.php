@@ -3,7 +3,7 @@ class Users extends Controller {
 
     public function __construct()
     {
-        
+        $this->userModel = $this->model('User');
     }
 
     public function register(){
@@ -23,7 +23,6 @@ class Users extends Controller {
                 'email_err' => '' ,
                 'password_err' => '',
                 'confirm_password_err' => ''
-
             ];
             
             //Validamos el nombre completo
@@ -34,6 +33,11 @@ class Users extends Controller {
             //Validamos el email
             if(empty($data['email'])){
                 $data['email_err'] = 'Por favor ingrese un email';
+            }else{
+                // revisamos que el email no exista en la BD
+                if($this->userModel->findUserByEmail($data['email'])){
+                    $data['email_err'] = 'El email ya existe en la base de datos';
+                }
             }
 
             //Validamos la contraseña
