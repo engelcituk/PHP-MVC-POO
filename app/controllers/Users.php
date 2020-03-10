@@ -58,7 +58,15 @@ class Users extends Controller {
             // asegurarse de que los errores esten vacíos
             if( empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
                 //validado
-                die('Existoso');
+                //cifrar la contraseña
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+                //registrar al usuario
+                if($this->userModel->register($data)){
+                    redirect('users/login');
+                }else{
+                    die('Algo malo pasó');
+                }
+
             }else{
                 // carga la vista register con el arreglo de errores y se imprimirian en el formulario
                 $this->view('users/register', $data);
