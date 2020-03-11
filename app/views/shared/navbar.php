@@ -16,8 +16,8 @@
       </ul>
 
       <ul class="navbar-nav mr-auto">
-        <?php if(isset($_SESSION['user_id'])) : ?>
-        <li class="nav-item">
+        <?php if (isset($_SESSION['user_id'])) : ?>
+          <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Salir <span class="sr-only">(current)</span></a>
           </li>
         <?php else : ?>
@@ -32,3 +32,4 @@
     </div>
   </div>
 </nav>
+
