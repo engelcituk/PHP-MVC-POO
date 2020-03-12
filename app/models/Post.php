@@ -45,9 +45,24 @@ class Post{
         //enlazo parametro
         $this->db->bind(':id', $id);
         $post = $this->db->single();
-        // revisamos Conteo de filas        
+        // retornamos a post       
         return $post;
         
+    }
+    public function updatePost($data)
+    {
+        $this->db->query('UPDATE posts SET title = :title, body = :body WHERE id = :id');
+        // enlazamos parametros
+        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':title', $data['title']);
+        $this->db->bind(':body', $data['body']);
+
+        //ejecución
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/shared/header.php'; ?>
-<a class="btn btn-warning pull-right" href="<?php echo URLROOT . '/posts/index'; ?>" role="button">
+<a class="btn btn-warning pull-right" href="<?php echo URLROOT . '/posts'; ?>" role="button">
     <i class="fas fa-arrow-left"></i> Regresar
 </a>
 <br>
@@ -32,8 +32,5 @@
             </div>
         <?php endif; ?>
     </div>
-
 </div>
-
-
 <?php require APPROOT . '/views/shared/footer.php'; ?>
