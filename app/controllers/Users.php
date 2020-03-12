@@ -168,3 +168,9 @@ class Users extends Controller {
         redirect('users/login'); //redirijo
     }    
 }
+
+
+
+
+
+

@@ -9,6 +9,10 @@ class Paginas extends Controller {
 
     public function index(){
 
+        if(isLoggedIn()){
+            redirect('posts');
+        }
+
         $data =[
             'titulo'=>'Bienvenido'
         ];
