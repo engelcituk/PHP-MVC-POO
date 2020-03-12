@@ -25,7 +25,7 @@
                 <div class="col">
                     <form action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id; ?>" method="post">                        
                         <button type="submit" class="btn btn-danger btn-block">
-                            <i class="fas fa-edit"></i> Borrar post
+                            <i class="fas fa-trash"></i> Borrar post
                         </button>
                     </form>
                 </div>
