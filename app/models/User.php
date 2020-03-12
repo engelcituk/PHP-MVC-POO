@@ -55,4 +55,14 @@ class User {
         }
 
     }
+    //obtener usuario por Id
+    public function getUserById($id)
+    {
+        $this->db->query('SELECT * FROM users WHERE id = :id');
+        //enlazo parametro
+        $this->db->bind(':id', $id);
+        $user = $this->db->single();
+        // revisamos Conteo de filas        
+        return $user;
+    }
 }

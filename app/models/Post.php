@@ -38,4 +38,16 @@ class Post{
             return false;
         }
     }
+
+    public function getPostById($id)
+    {
+        $this->db->query('SELECT * FROM posts WHERE id = :id');
+        //enlazo parametro
+        $this->db->bind(':id', $id);
+        $post = $this->db->single();
+        // revisamos Conteo de filas        
+        return $post;
+        
+    }
+
 }
