@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <input type="submit" value="Crear publicación" class="btn btn-primary btn-block">
+                <input type="submit" value="Actualizar publicación" class="btn btn-primary btn-block">
             </div>
         </div>
     </form>
